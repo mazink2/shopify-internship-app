@@ -1,0 +1,99 @@
+/* MEDIA QUERIES */
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  html {
+    font-size: 5px;
+
+    header {
+      .title {
+        font-size: 3.5rem;
+      }
+    }
+
+    body {
+      .container {
+        .row {
+          ul {
+            padding-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* // Small devices (landscape phones, less than 767px) */
+@media (max-width: 767px) {
+  html {
+    font-size: 7px;
+  }
+
+  body {
+    .container {
+      .search-box {
+        padding: 0 4rem;
+      }
+      .row {
+        grid-template-columns: 3.75rem 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "star item"
+          ". desc";
+        padding: 0 4rem;
+        // padding-bottom: 
+
+        ul {
+          padding-left: 2rem;
+          padding-top: 1rem;
+          margin-bottom: 3rem;
+
+          li {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .description {
+          padding-right: 2%;
+        }
+      }
+
+      .favourite-items {
+        h2 {
+          padding: 2.1rem 4rem;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  html {
+    font-size: 11px;
+  }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Extra extra large devices (1600px and up) */
+@media (min-width: 1600px) {
+  html {
+    font-size: 16px;
+  }
+}

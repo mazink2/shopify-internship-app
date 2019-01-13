@@ -1,3 +1,57 @@
+/* Media queries */
+/* MEDIA QUERIES */
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  html {
+    font-size: 5px; }
+    html header .title {
+      font-size: 3.5rem; }
+    html body .container .row ul {
+      padding-top: 1rem; } }
+
+/* // Small devices (landscape phones, less than 767px) */
+@media (max-width: 767px) {
+  html {
+    font-size: 7px; }
+  body .container .search-box {
+    padding: 0 4rem; }
+  body .container .row {
+    grid-template-columns: 3.75rem 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "star item" ". desc";
+    padding: 0 4rem; }
+    body .container .row ul {
+      padding-left: 2rem;
+      padding-top: 1rem;
+      margin-bottom: 3rem; }
+      body .container .row ul li {
+        margin-bottom: 1rem; }
+    body .container .row .description {
+      padding-right: 2%; }
+  body .container .favourite-items h2 {
+    padding: 2.1rem 4rem;
+    padding-top: 0; } }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  html {
+    font-size: 9px; } }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  html {
+    font-size: 11px; } }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  html {
+    font-size: 13px; } }
+
+/* Extra extra large devices (1600px and up) */
+@media (min-width: 1600px) {
+  html {
+    font-size: 16px; } }
+
 /* Remove extra margin and padding from page */
 * {
   margin: 0;
@@ -14,7 +68,7 @@ body {
 /* Header Section */
 header {
   width: 100%;
-  height: 196px;
+  height: 12.25rem;
   background: linear-gradient(0.25turn, #1e5c93, #23985c);
   position: fixed;
   z-index: 1;
@@ -27,18 +81,17 @@ header {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 4em; }
+    font-size: 4rem; }
 
 /* Container for main content of page */
 .container {
-  padding-top: 30px;
-  padding-top: 226px;
+  padding-top: 14.125rem;
   color: #000;
   /* Style for each item/row of results/favourites */
   /* Results section */
   /* Favourite items section */ }
   .container .search-box {
-    padding: 0 30px;
+    padding: 0 1.875rem;
     height: 100%;
     width: 100%;
     box-sizing: border-box; }
@@ -47,23 +100,23 @@ header {
       display: inline-block;
       margin-right: 2%; }
       .container .search-box .field-container #search-field {
-        height: 90px;
-        border: 2px solid #aaa;
-        border-radius: 5px;
+        height: 5.625rem;
+        border: .125rem solid #aaa;
+        border-radius: 0.3125rem;
         float: left;
         width: 100%;
         box-sizing: border-box;
-        padding: 0 30px;
-        font-size: 2.4em; }
+        padding: 0 1.875rem;
+        font-size: 2.4rem; }
     .container .search-box .btn-container {
       display: inline-block;
       width: 7%; }
       .container .search-box .btn-container #submit-btn {
         background: #23995c;
-        height: 90px;
-        width: 90px;
+        height: 5.625rem;
+        width: 5.625rem;
         border: none;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
         float: right;
         -webkit-box-shadow: 0px 3px 5px 0px #cacaca;
         -moz-box-shadow: 0px 3px 5px 0px #cacaca;
@@ -74,31 +127,35 @@ header {
           transform: scaleX(-1); }
   .container .row {
     display: grid;
-    grid-template-columns: 60px 3fr 4fr;
-    font-size: 2.1em;
-    padding: 0 30px;
-    padding-bottom: 1.3em; }
+    grid-template-columns: 3.75rem 3fr 4fr;
+    grid-template-areas: "star item desc";
+    font-size: 2.1rem;
+    padding: 0 1.875rem;
+    padding-bottom: 2.5rem; }
     .container .row li {
       margin-bottom: 1.7rem;
       padding-left: .8rem; }
     .container .row .star {
       color: #aaa;
       font-size: 1.8rem;
-      padding-top: 2.5px; }
+      padding-top: 0.15625rem;
+      grid-area: star; }
       .container .row .star.favourite {
         color: #23995c; }
     .container .row .item {
       padding-right: 15%;
-      line-height: 1.2em; }
+      line-height: 2.6rem;
+      grid-area: item; }
     .container .row .description {
       font-size: 1.85rem;
-      line-height: 1.25em;
-      padding-right: 3%; }
+      line-height: 2.5rem;
+      padding-right: 3%;
+      grid-area: desc; }
   .container .results {
-    padding-top: 2.1em; }
+    padding-top: 2.1rem; }
   .container .favourite-items {
     background: #f7fefa; }
     .container .favourite-items h2 {
       color: #23995c;
       font-size: 3rem;
-      padding: 2.1rem 30px; }
+      padding: 2.1rem 1.875rem; }

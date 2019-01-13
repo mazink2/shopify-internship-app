@@ -1,3 +1,6 @@
+/* Media queries */
+@import 'media-queries';
+
 /* Remove extra margin and padding from page */
 * {
 	margin: 0;
@@ -16,7 +19,7 @@ body {
 /* Header Section */
 header {
   width: 100%;
-  height: 196px;
+  height: 12.25rem;
   background: linear-gradient(0.25turn, #1e5c93, #23985c);;
   position: fixed;
   z-index: 1;
@@ -31,19 +34,17 @@ header {
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    font-size: 4em;
+    font-size: 4rem;
   }
-
 }
 
 /* Container for main content of page */
 .container {
-  padding-top: 30px;
-  padding-top: 226px;
+  padding-top: 14.125rem;
   color: #000;
 
   .search-box {
-    padding: 0 30px;
+    padding: 0 1.875rem;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -54,14 +55,14 @@ header {
       margin-right: 2%;
 
       #search-field {
-        height: 90px;
-        border: 2px solid #aaa;
-        border-radius: 5px;
+        height: 5.625rem;
+        border: .125rem solid #aaa;
+        border-radius: 0.3125rem;
         float: left;
         width: 100%;
         box-sizing: border-box;
-        padding: 0 30px;
-        font-size: 2.4em;
+        padding: 0 1.875rem;
+        font-size: 2.4rem;
       }
     }
 
@@ -71,10 +72,10 @@ header {
       
       #submit-btn {
         background: #23995c;
-        height: 90px;
-        width: 90px;
+        height: 5.625rem;
+        width: 5.625rem;
         border: none;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
         float: right;
         -webkit-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
         -moz-box-shadow: 0px 3px 5px 0px rgba(202,202,202,1);
@@ -92,10 +93,11 @@ header {
   /* Style for each item/row of results/favourites */
   .row {
     display: grid;
-    grid-template-columns: 60px 3fr 4fr;
-    font-size: 2.1em;
-    padding: 0 30px;
-    padding-bottom: 1.3em;
+    grid-template-columns: 3.75rem 3fr 4fr;
+    grid-template-areas: "star item desc";
+    font-size: 2.1rem;
+    padding: 0 1.875rem;
+    padding-bottom: 2.5rem;
 
     li {
       margin-bottom: 1.7rem;
@@ -105,8 +107,8 @@ header {
     .star {
       color: #aaa;
       font-size: 1.8rem;
-      padding-top: 2.5px;
-
+      padding-top: 0.15625rem;
+      grid-area: star;
 
       &.favourite {
         color: #23995c;
@@ -115,19 +117,21 @@ header {
 
     .item {
       padding-right: 15%;
-      line-height: 1.2em;
+      line-height: 2.6rem;
+      grid-area: item;
     }
 
     .description {
       font-size: 1.85rem;
-      line-height: 1.25em;
+      line-height: 2.5rem;
       padding-right: 3%;
+      grid-area: desc;
     }
   }
 
   /* Results section */
   .results {
-    padding-top: 2.1em;      
+    padding-top: 2.1rem;      
   }
 
   /* Favourite items section */
@@ -136,7 +140,7 @@ header {
     h2 {
       color: #23995c;
       font-size: 3rem;
-      padding: 2.1rem 30px;
+      padding: 2.1rem 1.875rem;
     }
   }
 }
