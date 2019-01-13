@@ -1,0 +1,14 @@
+{
+  "name": "shopify-app",
+  "version": "1.0.0",
+  "description": "Shopify Web Engineer Challenge - Summer 2019",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "Mazin Abdul Karim",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
