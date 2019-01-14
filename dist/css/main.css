@@ -22,8 +22,7 @@
     padding: 0 4rem; }
     body .container .row ul {
       padding-left: 2rem;
-      padding-top: 1rem;
-      margin-bottom: 3rem; }
+      padding-top: 1rem; }
       body .container .row ul li {
         margin-bottom: 1rem; }
     body .container .row .description {
@@ -120,7 +119,8 @@ header {
         float: right;
         -webkit-box-shadow: 0px 3px 5px 0px #cacaca;
         -moz-box-shadow: 0px 3px 5px 0px #cacaca;
-        box-shadow: 0px 3px 5px 0px #cacaca; }
+        box-shadow: 0px 3px 5px 0px #cacaca;
+        cursor: pointer; }
         .container .search-box .btn-container #submit-btn .fas {
           color: #fff;
           font-size: 3rem;
@@ -130,11 +130,11 @@ header {
     grid-template-columns: 3.75rem 3fr 4fr;
     grid-template-areas: "star item desc";
     font-size: 2.1rem;
-    padding: 0 1.875rem;
-    padding-bottom: 2.5rem; }
+    padding: 0 1.875rem; }
     .container .row li {
-      margin-bottom: 1.7rem;
-      padding-left: .8rem; }
+      margin-bottom: 1.7rem; }
+      .container .row li:last-of-type {
+        margin-bottom: 0; }
     .container .row .star {
       color: #aaa;
       font-size: 1.8rem;
@@ -142,6 +142,8 @@ header {
       grid-area: star; }
       .container .row .star.favourite {
         color: #23995c; }
+      .container .row .star .fas {
+        cursor: pointer; }
     .container .row .item {
       padding-right: 15%;
       line-height: 2.6rem;
@@ -150,7 +152,9 @@ header {
       font-size: 1.85rem;
       line-height: 2.5rem;
       padding-right: 3%;
-      grid-area: desc; }
+      grid-area: desc;
+      padding-bottom: 2.5rem;
+      padding-left: .8rem; }
   .container .results {
     padding-top: 2.1rem; }
   .container .favourite-items {
