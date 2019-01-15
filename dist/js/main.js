@@ -3,13 +3,16 @@ let searchField = document.querySelector('#search-field');    // Input search fi
 let submitBtn = document.querySelector('#submit-btn');        // Submit button
 let results = document.querySelector('.results');             // Results section
 let favourites = document.querySelector('.favourite-items');  // Favourites section
+let favList = document.querySelector('.list');                // List of favourite items
+
 
 //Initialize list of favourited items
 let favouritedArr = [];                        // Array to be populated with title of favourited items
-let favouritedHTML = '<h2>Favourites</h2>';    // HTML to be rendered in favourites section
+let favouritedHTML = '';                       // HTML to be rendered in favourites section
 
-
+// Add event listeners when content of page is done loading
 window.onload = function() {
+
   // Handle search field events
   searchField.addEventListener('keyup', (e) => {
 
@@ -22,14 +25,14 @@ window.onload = function() {
     if (searchField.value === '') {
       results.innerHTML = '';
     }
-
-  })
+  });
 
   // Search for results when submit button is clicked
   submitBtn.addEventListener('click', getResults);
   
   // Toggle favourite items
   document.body.addEventListener('click', (e) => {
+    
     // DOM Selectors
     let classNames = e.target.parentElement.className;  // Element classes
     let classList = e.target.parentElement.classList;   // List of element classes
@@ -52,6 +55,8 @@ window.onload = function() {
   });
 }
 
+
+/******************** FUNCTIONS ********************/
 
 // Search for and render results
 function getResults() {
@@ -84,9 +89,7 @@ function getResults() {
           </div>
           `;
         } 
-
         results.innerHTML = output;
-
       });
 
       // Display error message if no results are found
@@ -116,22 +119,20 @@ function addToFavourites(classList, row, title) {
   // Change color of star to green
   classList.add('favourite');
 
-  // Check if heading is displayed in favourites section
-  if (favourites.innerHTML === '') {
-    // Add HTML for the heading into the variable if it is not displayed
-    favouritedHTML = '<div class="favourite-items"><h2>Favourites</h2></div>';
-  }
-
   // Add HTML of item to list of favourites
   favouritedHTML += row.outerHTML;
 
-  // Render list of favourite items
-  favourites.innerHTML = favouritedHTML;
-
   // Add item to favourited array
   favouritedArr.push(title);
-}
 
+  // Render hidden list of favourite items
+  favList.innerHTML = favouritedHTML;
+
+  // Make list of favourite items visible if there is more than one item in the list
+  if (favouritedArr.length > 1) {
+    favourites.style.visibility = 'visible';
+  }
+}
 
 // Remove item from favourites
 function removeFromFavourites(row, title){
@@ -150,16 +151,12 @@ function removeFromFavourites(row, title){
   
   // Remove item from rendered list of favourite items
   favouritesRow.remove();
-  
 
-  // Remove header if list of favourite items is empty
-  if (favourites.outerHTML === '<div class="favourite-items"><h2>Favourites</h2></div>') {
-    favourites.innerHTML = '';
+  // Hide list of favourite items when there are less than 2 items
+  if (favouritedArr.length < 2) {
+    favourites.style.visibility = 'hidden';
   }
 
   // Update variable containing HTML of list of favourites
-  favouritedHTML = favourites.outerHTML;
+  favouritedHTML = favList.outerHTML;
 }
-
-
-

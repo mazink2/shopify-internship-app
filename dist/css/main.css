@@ -88,7 +88,7 @@ header {
   background: #fff;
   padding-top: 14.125rem;
   color: #000;
-  /* Style for each item/row of results/favourites */
+  /* Styles for each item/row of results/favourites */
   /* Results section */
   /* Favourite items section */ }
   .container .search-box {
@@ -166,7 +166,8 @@ header {
     padding: 8rem 1.875rem;
     text-align: center; }
   .container .favourite-items {
-    background: #f7fefa; }
+    background: #f7fefa;
+    visibility: hidden; }
     .container .favourite-items h2 {
       color: #23995c;
       font-size: 3rem;

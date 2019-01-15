@@ -93,7 +93,7 @@ header {
     }
   }
 
-  /* Style for each item/row of results/favourites */
+  /* Styles for each item/row of results/favourites */
   .row {
     display: grid;
     grid-template-columns: 3.75rem 3fr 4fr;
@@ -159,6 +159,7 @@ header {
   /* Favourite items section */
   .favourite-items {
     background: #f7fefa;
+    visibility: hidden;
     h2 {
       color: #23995c;
       font-size: 3rem;
