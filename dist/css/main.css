@@ -28,8 +28,7 @@
     body .container .row .description {
       padding-right: 2%; }
   body .container .favourite-items h2 {
-    padding: 2.1rem 4rem;
-    padding-top: 0; } }
+    padding: 2.1rem 4rem; } }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
