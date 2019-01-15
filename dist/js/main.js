@@ -4,14 +4,16 @@ let submitBtn = document.querySelector('#submit-btn');        // Submit button
 let results = document.querySelector('.results');             // Results section
 let favourites = document.querySelector('.favourite-items');  // Favourites section
 
+
 //Initialize list of favourited items
-let favourited = [];
-let favouritedHTML = '<h2>Favourites</h2>';
+let favouritedArr = [];                        // Array to be populated with title of favourited items
+let favouritedHTML = '<h2>Favourites</h2>';    // HTML to be rendered in favourites section
 
 
 window.onload = function() {
-  //  
+  // Handle search field events
   searchField.addEventListener('keyup', (e) => {
+
     // Search for results when enter is hit
     if (e.keyCode === 13) {
       getResults();
@@ -20,8 +22,8 @@ window.onload = function() {
     // Clear list of results when search field is cleared
     if (searchField.value === '') {
       results.innerHTML = '';
-      console.log('delete');
     }
+
   })
 
   // Search for results when submit button is clicked
@@ -29,50 +31,25 @@ window.onload = function() {
   
   // Toggle favourite items
   document.body.addEventListener('click', (e) => {
-    let classNames = e.target.parentElement.className;
-    let classList = e.target.parentElement.classList;
-    let row = e.target.parentElement.parentElement;
-    let title = e.target.parentElement.nextSibling.nextSibling.textContent;
-    
-    // Add item to favourites
-    if (classNames === 'star ' || classNames === 'star') {
+    // DOM Selectors
+    let classNames = e.target.parentElement.className;  // Element classes
+    let classList = e.target.parentElement.classList;   // List of element classes
+    let row = e.target.parentElement.parentElement;     // Item row
 
-      // Change color of star to green
-      classList.add('favourite');
+    // Check to see if star is clicked before adding/removing item from favourites list
+    if (e.target.className === 'fas fa-star') {
+      let title = e.target.parentElement.nextSibling.nextSibling.textContent;
 
-      // row.toString
-      // console.log(typeof(row));
-      console.log(row.outerHTML);
-      console.log(typeof(row.outerHTML));
-      console.log(row.toString());
-
-
-
-      // Add HTML of item to list of favourites
-      favouritedHTML += row.outerHTML;
-
-      // Render list of favourite items
-      favourites.innerHTML = favouritedHTML;
-
+      // Add item to favourites if it is not already favourited
+      if (classNames === 'star ' || classNames === 'star') {
+        addToFavourites(classList, row, title);
+      }
       
-
-      // Add item to favourited array
-      favourited.push(title);
-
-        // console.log(favourited);
-    }
-    
-    // Remove item from favourites
-    if (classNames == 'star favourite') {
-
-      // Change color of star to grey
-      classList.remove('favourite');
-
-      // Remove item from favourited array
-      let index = favourited.indexOf(title);
-      favourited.splice(index, 1);
-      // console.log(favourited);
-    }
+      // Remove item from favourites if it is already favourited
+      if (classNames == 'star favourite') {
+        removeFromFavourites(row, title);
+      }
+    } 
   });
 }
 
@@ -96,8 +73,8 @@ function getResults() {
         // Render item if input value matches something in the combined search string 
         if (searchString.indexOf(searchField.value.toLowerCase()) !== -1) {
           output += `
-          <div class="row">
-            <div class="star ${(favourited.indexOf(item.title) !== -1) ? 'favourite': ''}">
+          <div class="row" id="item-${index}">
+            <div class="star ${(favouritedArr.indexOf(item.title) !== -1) ? 'favourite': ''}">
                 <i class="fas fa-star"></i>
             </div>
             <div class="item">${item.title}</div>
@@ -122,11 +99,42 @@ function decodeHtml(html) {
   return txt.value;
 }
 
-// Update list of favourites
-function updateFavourites(title, output) {
+// Add item to favourites
+function addToFavourites(classList, row, title) {
+  // Change color of star to green
+  classList.add('favourite');
 
+  // Add HTML of item to list of favourites
+  favouritedHTML += row.outerHTML;
+
+  // Render list of favourite items
+  favourites.innerHTML = favouritedHTML;
+
+  // Add item to favourited array
+  favouritedArr.push(title);
 }
 
+// Remove item from favourites
+function removeFromFavourites(row, title){
+  let itemID = row.id;    // Item id
+  let resultsRow = document.querySelector(`.results #${itemID}`);             // Item in results section
+  let favouritesRow = document.querySelector(`.favourite-items #${itemID}`);  // Item in favourites section
+  
+  // Remove item from favourited array
+  let index = favouritedArr.indexOf(title);
+  favouritedArr.splice(index, 1);
+  
+  // Change color of star in results section back to grey if it's listed
+  if (resultsRow) {
+    resultsRow.firstChild.nextSibling.className = 'star';
+  }
+  
+  // Remove item from rendered list of favourite items
+  favouritesRow.remove();
+  
+  // Update variable containing HTML of list of favourites
+  favouritedHTML = favourites.outerHTML;
+}
 
 
 
