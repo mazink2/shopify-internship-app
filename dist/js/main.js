@@ -4,7 +4,6 @@ let submitBtn = document.querySelector('#submit-btn');        // Submit button
 let results = document.querySelector('.results');             // Results section
 let favourites = document.querySelector('.favourite-items');  // Favourites section
 
-
 //Initialize list of favourited items
 let favouritedArr = [];                        // Array to be populated with title of favourited items
 let favouritedHTML = '<h2>Favourites</h2>';    // HTML to be rendered in favourites section
@@ -53,6 +52,7 @@ window.onload = function() {
   });
 }
 
+
 // Search for and render results
 function getResults() {
 
@@ -65,7 +65,7 @@ function getResults() {
 
       // Loop through each item and check if it matches the input search value
       items.forEach((item, index) => {
-        
+      
         // Combine all JSON data into one string to simplify searching
         searchString = `${items[index].body} ${items[index].category} ${items[index].title} ${items[index].keywords}`;
         searchString = searchString.toLowerCase();
@@ -83,14 +83,26 @@ function getResults() {
             </div>
           </div>
           `;
-        }; 
+        } 
+
         results.innerHTML = output;
+
       });
+
+      // Display error message if no results are found
+      if (output === '') {
+          results.innerHTML = `
+            <div class="no-results">
+              <p>No results found</p>
+            </div>
+          `;
+      }; 
     })
     .catch((err) => {
       console.log(err);
     })
 }
+
 
 // Convert character entities to regular text
 function decodeHtml(html) {
@@ -104,6 +116,12 @@ function addToFavourites(classList, row, title) {
   // Change color of star to green
   classList.add('favourite');
 
+  // Check if heading is displayed in favourites section
+  if (favourites.innerHTML === '') {
+    // Add HTML for the heading into the variable if it is not displayed
+    favouritedHTML = '<div class="favourite-items"><h2>Favourites</h2></div>';
+  }
+
   // Add HTML of item to list of favourites
   favouritedHTML += row.outerHTML;
 
@@ -114,9 +132,10 @@ function addToFavourites(classList, row, title) {
   favouritedArr.push(title);
 }
 
+
 // Remove item from favourites
 function removeFromFavourites(row, title){
-  let itemID = row.id;    // Item id
+  let itemID = row.id;                                                        // Item id
   let resultsRow = document.querySelector(`.results #${itemID}`);             // Item in results section
   let favouritesRow = document.querySelector(`.favourite-items #${itemID}`);  // Item in favourites section
   
@@ -132,6 +151,12 @@ function removeFromFavourites(row, title){
   // Remove item from rendered list of favourite items
   favouritesRow.remove();
   
+
+  // Remove header if list of favourite items is empty
+  if (favourites.outerHTML === '<div class="favourite-items"><h2>Favourites</h2></div>') {
+    favourites.innerHTML = '';
+  }
+
   // Update variable containing HTML of list of favourites
   favouritedHTML = favourites.outerHTML;
 }

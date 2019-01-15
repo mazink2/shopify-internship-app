@@ -60,9 +60,10 @@
 
 /* Set font for page */
 body {
-  background: #fff;
+  background: #f7fefa;
   color: #333;
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif;
+  height: 100vh; }
 
 /* Header Section */
 header {
@@ -84,6 +85,7 @@ header {
 
 /* Container for main content of page */
 .container {
+  background: #fff;
   padding-top: 14.125rem;
   color: #000;
   /* Style for each item/row of results/favourites */
@@ -156,7 +158,13 @@ header {
       padding-bottom: 2.5rem;
       padding-left: .8rem; }
   .container .results {
-    padding-top: 2.1rem; }
+    background: #fff;
+    padding-top: 2.1rem;
+    min-height: 200px; }
+  .container .no-results {
+    font-size: 3rem;
+    padding: 8rem 1.875rem;
+    text-align: center; }
   .container .favourite-items {
     background: #f7fefa; }
     .container .favourite-items h2 {

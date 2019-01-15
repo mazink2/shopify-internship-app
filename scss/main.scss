@@ -11,9 +11,10 @@
 
 /* Set font for page */
 body {
-  background: #fff;
+  background: #f7fefa;
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
+  height: 100vh;
 }
 
 /* Header Section */
@@ -40,6 +41,7 @@ header {
 
 /* Container for main content of page */
 .container {
+  background: #fff;
   padding-top: 14.125rem;
   color: #000;
 
@@ -139,11 +141,21 @@ header {
     }
   }
 
+  
   /* Results section */
   .results {
-    padding-top: 2.1rem;      
+    background: #fff;      
+    padding-top: 2.1rem;
+    min-height: 200px;
+  }
+  
+  .no-results {
+    font-size: 3rem;
+    padding: 8rem 1.875rem;
+    text-align: center;
   }
 
+  
   /* Favourite items section */
   .favourite-items {
     background: #f7fefa;
