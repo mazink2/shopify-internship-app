@@ -7,6 +7,7 @@
 	padding: 0;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+  // font-size: 12px;
 }
 
 /* Set font for page */
@@ -44,6 +45,34 @@ header {
   background: #fff;
   padding-top: 14.125rem;
   color: #000;
+
+  .intro {
+    padding: 0 1.875rem;
+
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+
+    .intro-content {
+      background: rgb(239, 241, 239);
+      padding: 2rem;
+      border-radius: 8px;
+
+
+      p {
+        margin-bottom: 1rem;
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+
+    // float: left;
+    // width: 90%;
+    width: 100%;
+    
+  }
 
   .search-box {
     padding: 0 1.875rem;

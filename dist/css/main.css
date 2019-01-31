@@ -6,6 +6,8 @@
     font-size: 5px; }
     html header .title {
       font-size: 3.5rem; }
+    html body .container .intro {
+      font-size: 1.2rem; }
     html body .container .row ul {
       padding-top: 1rem; } }
 
@@ -13,6 +15,9 @@
 @media (max-width: 767px) {
   html {
     font-size: 7px; }
+  body .container .intro {
+    padding: 0 4rem;
+    font-size: 1.5rem; }
   body .container .search-box {
     padding: 0 4rem; }
   body .container .row {
@@ -33,22 +38,24 @@
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   html {
-    font-size: 9px; } }
+    font-size: 8px; }
+  .intro {
+    padding: 0 3.8rem; } }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   html {
-    font-size: 11px; } }
+    font-size: 9px; } }
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   html {
-    font-size: 13px; } }
+    font-size: 10px; } }
 
 /* Extra extra large devices (1600px and up) */
 @media (min-width: 1600px) {
   html {
-    font-size: 16px; } }
+    font-size: 14px; } }
 
 /* Remove extra margin and padding from page */
 * {
@@ -90,6 +97,19 @@ header {
   /* Styles for each item/row of results/favourites */
   /* Results section */
   /* Favourite items section */ }
+  .container .intro {
+    padding: 0 1.875rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    width: 100%; }
+    .container .intro .intro-content {
+      background: #eff1ef;
+      padding: 2rem;
+      border-radius: 8px; }
+      .container .intro .intro-content p {
+        margin-bottom: 1rem; }
+        .container .intro .intro-content p:last-child {
+          margin-bottom: 0; }
   .container .search-box {
     padding: 0 1.875rem;
     height: 100%;

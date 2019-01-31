@@ -13,6 +13,10 @@
 
     body {
       .container {
+        .intro {
+          font-size: 1.2rem;
+        }
+        
         .row {
           ul {
             padding-top: 1rem;
@@ -31,6 +35,11 @@
 
   body {
     .container {
+      .intro {
+        padding: 0 4rem;
+        font-size: 1.5rem;
+      }
+
       .search-box {
         padding: 0 4rem;
       }
@@ -71,27 +80,40 @@
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   html {
-    font-size: 9px;
+    // font-size: 9px;
+    font-size: 8px;
+  }
+
+  .intro {
+    padding: 0 3.8rem;
   }
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   html {
-    font-size: 11px;
+    // font-size: 11px;
+    font-size: 9px;
+    
+    // .intro {
+    //   padding: 0 3.8rem;
+    //   padding-right: 6rem;
+    // }
   }
+
 }
 
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   html {
-    font-size: 13px;
+    // font-size: 13px;
+    font-size: 10px;
   }
 }
 
 /* Extra extra large devices (1600px and up) */
 @media (min-width: 1600px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
