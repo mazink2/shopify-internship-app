@@ -164,7 +164,8 @@ header {
       .container .row .star.favourite {
         color: #23995c; }
       .container .row .star .fas {
-        cursor: pointer; }
+        cursor: pointer;
+        padding: .5rem; }
     .container .row .item {
       padding-right: 15%;
       line-height: 2.6rem;
